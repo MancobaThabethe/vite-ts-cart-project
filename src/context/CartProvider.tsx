@@ -64,7 +64,7 @@ const reducer = (state: CartStateType, action: ReducerAction): CartStateType => 
 }
 
 const useCartContext = (initState: CartStateType) => {
-    const [state, dispacth] = useReducer(reducer, initState)
+    const [state, dispatch] = useReducer(reducer, initState)
 
     const REDUCER_ACTIONS = useMemo(()=> REDUCE_ACTION_TYPE,[])
 
@@ -77,14 +77,14 @@ const useCartContext = (initState: CartStateType) => {
     )
     const cart = state.cart.sort((a, b) => Number(a.sku.slice(-4)) - Number(b.sku.slice(-4)))
 
-    return { dispacth, REDUCER_ACTIONS, totalItems, totalPrice, cart}
+    return { dispatch, REDUCER_ACTIONS, totalItems, totalPrice, cart}
 
 }
 
 export type UseCartContextType = ReturnType<typeof useCartContext>
 
 export const initCartContextState: UseCartContextType = {
-    dispacth: () => {},
+    dispatch: () => {},
     REDUCER_ACTIONS: REDUCE_ACTION_TYPE,
     totalItems: 0,
     totalPrice: '',

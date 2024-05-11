@@ -6,11 +6,11 @@ import useCart from "../../hooks/useCart"
 
 
 const Products = () => {
-  const { dispacth, REDUCER_ACTIONS, cart } = useCart()
+  const { dispatch, REDUCER_ACTIONS, cart } = useCart()
   const { products } = useProducts()
   return (
     <main className="main main--products">
-      <h2>Products</h2>
+      <h2 className="product-h2">Products</h2>
       {
         products?.length ? (
           <>
@@ -19,7 +19,7 @@ const Products = () => {
                 const inCart: boolean = cart.some(item => item.sku === product.sku)
 
                 return(
-                  <ProductCard key={product.sku} product={product} dispatch={dispacth} REDUCER_ACTIONS={REDUCER_ACTIONS} inCart={inCart} />
+                  <ProductCard key={product.sku} product={product} dispatch={dispatch} REDUCER_ACTIONS={REDUCER_ACTIONS} inCart={inCart} />
                 )
               })
             } 

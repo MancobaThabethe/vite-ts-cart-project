@@ -16,14 +16,12 @@ const ProductCard = ({ product, inCart, dispatch, REDUCER_ACTIONS }: PropsType):
     const itemInCart = inCart ? '=> Item in Cart' : null
     
     return (
-    <div>
       <article className="product">
-        <h3>{product.name}</h3>
         <img src={img} alt={product.name} className="product__img" />
+        <h3>{product.name}</h3>
         <p>{new Intl.NumberFormat('en-ZA', {style: 'currency',currency: 'ZAR',}).format(product.price)}{itemInCart}</p>
         <button onClick={onAddToCart}>Add to cart</button>
     </article>  
-    </div>
   )
 }
 
