@@ -8,7 +8,7 @@ import { useState } from 'react'
 function App() {
   const [viewCart, setViewCart] = useState<boolean>(false)
 
-  const pageContent = viewCart ? <Cart /> : <Products />
+  const pageContent = viewCart ? <Cart setViewCart={setViewCart}/> : <Products />
   const content = (
     <>
       <Header viewCart={viewCart} setViewCart={setViewCart} />

@@ -150,9 +150,35 @@ img {
     color: red;
     border-radius: 10px;
     padding: 10px;
-    position: sticky;
-    bottom: 0;
-    z-index: 1;
+    margin-top: 10px;
+}
+
+.prompt-overlay{
+    z-index: 2;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    height: 90vh;
+    background: rgba(255,255,255,0.4);
+}
+
+.prompt-delete{
+    border: 2px solid red;
+    background-color: rgb(236, 192, 192);
+    color: red;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.prompt-checkout{
+    border: 2px solid rgb(10, 107, 1);
+    background-color: rgb(162, 203, 168);
+    color: green;
+    border-radius: 10px;
+    padding: 10px;
     margin-top: 10px;
 }
 
