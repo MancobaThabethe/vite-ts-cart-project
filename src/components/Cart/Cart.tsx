@@ -10,16 +10,12 @@ type PropsType = {
 const Cart = ({setViewCart}: PropsType) => {
   const { totalItems, totalPrice, cart, REDUCER_ACTIONS, dispatch } = useCart()
 
-  const btnStyle = {
-    backgroundColor: 'green',
-    color: "white"
-  }
 
   const handleCheckout = (): void => {
     dispatch({type: REDUCER_ACTIONS.SUBMIT})
     setCheckout(true)
     setTimeout(()=> 
-      setViewCart(false), 2700)
+      setViewCart(false), 1000)
   }
 
   const [deleted, setDeleted] = useState<boolean>(false)
@@ -29,7 +25,7 @@ const Cart = ({setViewCart}: PropsType) => {
     setTimeout(()=>{
       setDeleted(false)
       setCheckout(false)
-    }, 3000)
+    }, 2000)
   },[deleted, checkout])
 
   return (
@@ -38,24 +34,24 @@ const Cart = ({setViewCart}: PropsType) => {
     <main>
       <h2>Cart</h2>
       <h4>Total Items: {totalItems}</h4>
-      <h4>Total Price: {totalPrice}</h4>
       <section>
         {
           cart?.length ? 
-          <>
+          <ul className="cart__list">
             {
               cart.map(items => {
                 return(
-                  <CartCard key={items.sku} items={items} dispatch={dispatch} REDUCER_ACTIONS={REDUCER_ACTIONS} setDeleted={setDeleted}  />
+                  <li><CartCard key={items.sku} items={items} dispatch={dispatch} REDUCER_ACTIONS={REDUCER_ACTIONS} setDeleted={setDeleted}  /></li>
                 )
               })
             }  
-          </> : <p className="cart-empty">Cart is empty</p>
+          </ul> : <p className="cart-empty">Cart is empty</p>
         }
         <div>
+        <h4>Total Price: {totalPrice}</h4>
           {
             cart.length ? 
-            <button style={btnStyle} onClick={handleCheckout}>Check Out</button> : <></> 
+            <button className="check_out_btn" onClick={handleCheckout}>Check Out</button> : <></> 
           }
         </div>
       </section>

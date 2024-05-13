@@ -108,6 +108,10 @@ img {
     margin-top: 0.5em;
 }
 
+.cart__list{
+    list-style: none;
+}
+
 .cart__item {
     display: grid;
     grid-template-columns: 4fr 3fr 1fr 1fr;
@@ -180,6 +184,27 @@ img {
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
+}
+
+.cart_delete_btn{
+    background-color: red;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    padding: 8px 12px;
+}
+
+.check_out_btn{
+    margin: 0.6rem;
+    background-color: green;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 15px;
+}
+
+.check_out_btn:hover{
+    opacity: 0.9;
 }
 
 @media screen and (min-width: 601px) {
